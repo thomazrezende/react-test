@@ -18,22 +18,24 @@ const CardDiv = styled.div`
   width:250px;
   height:310px;
   border-radius:5px;
-  margin:10px;
+  margin-bottom:20px;
+  margin-right:20px;
   position: relative; 
   bottom:0;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   background:#2E2E40;
   overflow:hidden;
   cursor:pointer;
   :hover {
-    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
-    bottom:5px;
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
+    bottom:3px;
+    background:#36364D;
   }
-  -webkit-transition: all 0.1s ease-in-out;
-	-moz-transition: all  0.1s ease-in-out;
-	-ms-transition: all  0.1s ease-in-out;
-	-kthtml-transition: all 0.1s ease-in-out;
-	transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all  0.2s ease-in-out;
+	-ms-transition: all  0.2s ease-in-out;
+	-kthtml-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 `;
 
 
@@ -45,15 +47,15 @@ const CardText = (d) => (
 
 const CardTextDiv = styled.div`
   position:absolute; 
-  height:calc(50% - 25px);
-  bottom:25px;
+  height:calc(50% - 30px);
+  bottom:30px;
   left:0;
   padding:5px 20px 0 20px;
   color:#A4A4B3;
   font-family:'Nunito Sans';
   font-size:11px;
   font-weight:300;
-  line-height:14px;
+  line-height:15px;
   box-sizing:border-box; 
   overflow:hidden; 
 `
@@ -88,11 +90,12 @@ const CardFogDiv = styled.div`
   left:0;
   bottom:0;
   width:100%;
-  height:100%;
-  background-image:url(img/fog.png);  
-  background-position:center;
-  background-size:100% 100%;
+  height:100%;  
+  background: linear-gradient(180deg, rgba(46,46,64,0) 0%, rgba(46,46,64,1) 100%);
   z-index:1;
+  :hover {
+    background: linear-gradient(180deg, rgba(54,54,77,0) 0%, rgba(54,54,77,1) 100%);
+  }
 `;
 
 
