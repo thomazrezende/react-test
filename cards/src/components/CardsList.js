@@ -1,5 +1,6 @@
 import React from 'react'; 
 import styled from "styled-components"; 
+
 import Card from './Card' 
 import { technologies as data } from "../data/api-mock";  
 

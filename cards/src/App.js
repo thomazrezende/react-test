@@ -1,9 +1,14 @@
 import React from 'react'; 
-import CardsList from './components/CardsList'  
+import {ThemeProvider} from 'styled-components';
+
+import CardsList from './components/CardsList'; 
+import {themeEV} from './components/Theme'
 
 function App() {
   return ( 
-    <CardsList/>
+    <ThemeProvider theme={themeEV}>
+      <CardsList/>
+    </ThemeProvider>
   );
 }
 

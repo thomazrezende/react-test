@@ -1,6 +1,5 @@
 import React from 'react'; 
-import styled from "styled-components";
-
+import styled from "styled-components"; 
 
 ////////// header //////////
 
@@ -27,36 +26,35 @@ const CardHeaderDiv = styled.div`
   
 const CardFogDiv = styled.div`
   position:absolute;
-  left:-50%;
+  left:0;
   top:100%;
-  width:200%;
-  height:200%;
-  box-shadow: 0 0 100px 135px #2E2E40; 
+  width:100%;
+  height:100%;
+  box-shadow: 0 0  80px 100px ${props => props.theme.mainBg}; 
   z-index:1;  
-	transition: all 0.2s ease-in-out;
+	transition: box-shadow 0.2s ease-in-out;
 `;
 
 ////////// text //////////    
  
-const CardText = (props) => (
-  <CardTextDiv>{props.text}</CardTextDiv>
+const CardText = ({text}) => (
+  <CardTextDiv>{text}</CardTextDiv>
 )
 
 const CardTextDiv = styled.div`
   position:absolute; 
   height:calc(50% - 30px);
-  bottom:30px;
+  top:50%;
   left:0;
-  padding:5px 20px 0 20px;
-  color:#A4A4B3;
+  padding:5px 15px 0 15px;
+  color:${props => props.theme.shiftColor};
   font-family:'Nunito Sans';
-  font-size:11px;
+  font-size:12px;
   font-weight:300;
-  line-height:15px;
+  line-height:16px;
   box-sizing:border-box; 
   overflow:hidden; 
-`
-
+`;
 
 ////////// image //////////
 
@@ -70,16 +68,15 @@ const CardImageDiv = styled.div`
   background-position:center;
   background-size:cover;
   z-index:1;
-`;
-
+`; 
 
 ////////// title //////////
 
 const CardTitle = (props) => ( 
   <CardTitleDiv>
+    <MainIcon/>
     <SecondaryLabel text={props.secondaryLabel} />
     <MainLabel text={props.mainLabel} />
-    <CardIcon color='#ff0' />
   </CardTitleDiv> 
 )
 
@@ -87,79 +84,99 @@ const CardTitleDiv = styled.div`
   position:absolute;
   z-index:2;
   bottom:0;
-  padding:20px 30px 5px 20px; 
-  color:#fff;
+  padding:20px 25px 5px 15px; 
+  color:${props => props.theme.mainColor};
   box-sizing:border-box; 
   width:100%;
-`;
-
-
-////////// icons //////////
-
-const CardIcon = (props) => (
-  <CardIconDiv>
-    <IconPopup15 color={props.color} />
-  </CardIconDiv>
-)
-
-const CardIconDiv = styled.div` 
-  right:5px;
-  bottom:5px;
-  display: flex;
-  align-items: center;
-  justify-content: center; 
-  position:absolute;
-  width:25px;
-  height:25px; 
 `; 
 
+////////// footer //////////
 
-// icon popup15
+const CardFooter = () => (
+  <CardFooterDiv></CardFooterDiv>
+) 
 
-const IconPopup15 = ({color}) => (
-  <IconPopup15Svg color={color} viewBox='0 0 720 720'>
-    <path d='M552,144H264a24,24,0,0,0-24,24V456a24,24,0,0,0,24,24H552a24,24,0,0,0,24-24V168A24,24,0,0,0,552,144ZM528,432H288V192H528Z'/> 
-    <path d='M480,540H192V252a24,24,0,0,0-48,0V564a24,24,0,0,0,24,24H480a24,24,0,0,0,0-48Z'/>
-  </IconPopup15Svg>
-)
+const CardFooterDiv = styled.div` 
+  height:30px;
+  width:100%;
+  position: absolute;
+  bottom:0; 
+  box-sizing:border-box;
+`;
 
-const IconPopup15Svg = styled.svg` 
+////////// icons ////////// 
+
+const MainIcon = () => ( 
+  <MainIconDiv>
+    <MainIconSvg viewBox='0 0 720 720'>
+      <IconPopup15  /> 
+    </MainIconSvg>
+  </MainIconDiv>
+)  
+
+const MainIconDiv = styled.div`
+  position:absolute;
+  width:21px;
+  height:21px;
+  right:5px;
+  bottom:5px; 
+  z-index:2; 
+`;
+
+const MainIconSvg = styled.svg` 
+  position:absolute;;
   width:15px;
   height:15px; 
-  fill:${props => props.offColor};
-	transition: all 0.2s ease-in-out;
+  top:3px;
+  left:3px;
+  fill:${props => props.theme.secondaryColor};
+  transition: fill 0.2s ease-in-out;
 `;
+
+// icons
+
+const IconPopup15 = () => (
+  <g>
+    <path d='M552,144H264a24,24,0,0,0-24,24V456a24,24,0,0,0,24,24H552a24,24,0,0,0,24-24V168A24,24,0,0,0,552,144ZM528,432H288V192H528Z'/> 
+    <path d='M480,540H192V252a24,24,0,0,0-48,0V564a24,24,0,0,0,24,24H480a24,24,0,0,0,0-48Z'/> 
+  </g>
+) 
+
+const IconLocker15 = () => (
+  <g>
+    <path d='M552,144H264a24,24,0,0,0-24,24V456a24,24,0,0,0,24,24H552a24,24,0,0,0,24-24V168A24,24,0,0,0,552,144ZM528,432H288V192H528Z'/> 
+    <path d='M480,540H192V252a24,24,0,0,0-48,0V564a24,24,0,0,0,24,24H480a24,24,0,0,0,0-48Z'/> 
+  </g>
+) 
 
 
 ////////// SecondaryLabel //////////
 
-const SecondaryLabel = (props) => (
-  <SecondaryLabelDiv>{props.text}</SecondaryLabelDiv>
+const SecondaryLabel = ({text}) => (
+  <SecondaryLabelDiv>{text}</SecondaryLabelDiv>
 ) 
  
 const SecondaryLabelDiv = styled.div`
   font-size:8px;
   letter-spacing:0.5px;
   font-weight:700;
-  color:#52CCCC;
+  color:${props => props.theme.goColor};
   font-family:'Nunito Sans'; 
-  margin-bottom:3px;
-`; 
-
+  margin-bottom:3px; 
+`;  
 
 ////////// MainLabel //////////
 
-const MainLabel = (props) => (
-  <MainLabelDiv>{props.text}</MainLabelDiv>
+const MainLabel = ({text}) => (
+  <MainLabelDiv>{text}</MainLabelDiv>
 )
 
 const MainLabelDiv = styled.div`
   font-size:16px;
   font-family:'Roboto Condensed';
   font-weight:300;
-  line-height:20px;
-`;
-
+  line-height:20px; 
+`; 
 
 ////////// card body
 
@@ -171,35 +188,37 @@ const Card = (props) => (
       secondaryLabel={props.secondaryLabel}
     /> 
     <CardText text={props.summary} />
+    <CardFooter />
   </CardDiv>
 )
 
 const CardDiv = styled.div`
   width:250px;
-  height:350px;
+  height:330px;
   border-radius:5px;
   margin-bottom:20px;
   margin-right:20px;
   position: relative; 
   bottom:0;
+  left:0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); 
-  background:#2E2E40;
+  background:${props => props.theme.mainBg};
   overflow:hidden;
 	transition: all 0.2s ease-in-out;
   cursor:pointer;
   :hover {
     box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
-    bottom:3px;
-    background:#36364D;
+    bottom:2px;
+    left:1px;
+    background:${props => props.theme.shiftBg};
   }
-  &:hover ${CardFogDiv} {
-    box-shadow: inset 0px -33px 57px -32px rgba(255,0,0,0.75); 
+  &:hover ${CardFogDiv} { 
+    box-shadow: 0 0 40px 60px ${props => props.theme.shiftBg}; 
   } 
-  &:hover ${IconPopup15Svg} {
-    fill:#52cccc;
+  &:hover ${MainIconSvg} {
+    fill:${props => props.theme.goColor};
   } 
-`;  
-
+`;   
 
 ////////// export //////////
 
