@@ -1,19 +1,19 @@
 import React from 'react'; 
 import styled from "styled-components"; 
 import Card from './Card' 
-import { technologies as data } from "./api-mock";  
+import { technologies as data } from "../data/api-mock";  
 
-////////// card body
+////////// list //////////
 
-const CardsList = (d) => (
+const CardsList = () => (
   <CardsListUl>
-    {data.map((d, i) => (
-      <Card
-        key={d.id}   
-        mainLabel={d.name} 
+    {data.map((tech, i) => (
+      <Card 
+        key={tech.id}   
+        mainLabel={tech.name} 
         secondaryLabel="TREND TITLE" 
-        image={d.image}
-        summary={d.summary}
+        image={tech.image}
+        summary={tech.summary}
       />
     ))}
   </CardsListUl>   
