@@ -27,7 +27,7 @@ const CardsListUl = styled.div`
   justify-content:flex-start;  
   padding-top:20px;
   padding-left:20px;
-  background:#262636;
+  background:${props => props.theme.secondaryBg};
 `;  
 
 ////////// export //////////

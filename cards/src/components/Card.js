@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const CardHeader = (props) => (
   <CardHeaderDiv>
+    <Locker/>
     <CardTitle 
       mainLabel={props.mainLabel} 
       secondaryLabel={props.secondaryLabel}>
@@ -21,6 +22,65 @@ const CardHeaderDiv = styled.div`
   top:0;
   left:0;  
 `; 
+
+////////// lockerIcon //////////
+
+const Locker = () => (
+  <LockerDiv>
+    <LockerSvg viewBox='0 0 720 720'>
+      <IconLocker15  /> 
+    </LockerSvg>
+  </LockerDiv>
+)
+
+const LockerDiv = styled.div`
+  width:19px;
+  height:19px;
+  position:absolute;
+  top:7px;
+  left:7px;
+  background:${props => props.theme.mainBg};
+  border-radius:11px;
+  z-index:3;
+`;
+
+const LockerSvg = styled.svg`
+  width:15px;
+  height:15px;
+  position:absolute;
+  left:2px;
+  top:2px;
+  fill:${props => props.theme.mainColor};
+`;
+
+////////// SecondaryLabel //////////
+
+const SecondaryLabel = ({text}) => (
+  <SecondaryLabelDiv>{text}</SecondaryLabelDiv>
+) 
+ 
+const SecondaryLabelDiv = styled.div`
+  font-size:8px;
+  letter-spacing:0.5px;
+  font-weight:700;
+  color:${props => props.theme.goColor};
+  font-family:'Nunito Sans'; 
+  margin-bottom:3px; 
+`;  
+
+////////// MainLabel //////////
+
+const MainLabel = ({text}) => (
+  <MainLabelDiv>{text}</MainLabelDiv>
+)
+
+const MainLabelDiv = styled.div`
+  font-size:16px;
+  font-family:'Roboto Condensed';
+  font-weight:300;
+  line-height:20px; 
+`; 
+
 
 ////////// fog //////////
   
@@ -90,21 +150,7 @@ const CardTitleDiv = styled.div`
   width:100%;
 `; 
 
-////////// footer //////////
-
-const CardFooter = () => (
-  <CardFooterDiv></CardFooterDiv>
-) 
-
-const CardFooterDiv = styled.div` 
-  height:30px;
-  width:100%;
-  position: absolute;
-  bottom:0; 
-  box-sizing:border-box;
-`;
-
-////////// icons ////////// 
+////////// main icon ////////// 
 
 const MainIcon = () => ( 
   <MainIconDiv>
@@ -144,41 +190,41 @@ const IconPopup15 = () => (
 
 const IconLocker15 = () => (
   <g>
-    <path d='M552,144H264a24,24,0,0,0-24,24V456a24,24,0,0,0,24,24H552a24,24,0,0,0,24-24V168A24,24,0,0,0,552,144ZM528,432H288V192H528Z'/> 
-    <path d='M480,540H192V252a24,24,0,0,0-48,0V564a24,24,0,0,0,24,24H480a24,24,0,0,0,0-48Z'/> 
+    <path xmlns='http://www.w3.org/2000/svg' d='M483.76,288H480V240a120,120,0,0,0-240,0v48h-3.76A44.24,44.24,0,0,0,192,332.24V531.76A44.24,44.24,0,0,0,236.24,576H483.76A44.24,44.24,0,0,0,528,531.76V332.24A44.24,44.24,0,0,0,483.76,288ZM288,240a72,72,0,0,1,144,0v48H288Z'/>
   </g>
 ) 
 
+////////// footer //////////
 
-////////// SecondaryLabel //////////
-
-const SecondaryLabel = ({text}) => (
-  <SecondaryLabelDiv>{text}</SecondaryLabelDiv>
+const CardFooter = () => (
+  <CardFooterDiv>
+    <CardFlag/>
+  </CardFooterDiv>
 ) 
- 
-const SecondaryLabelDiv = styled.div`
-  font-size:8px;
-  letter-spacing:0.5px;
-  font-weight:700;
-  color:${props => props.theme.goColor};
-  font-family:'Nunito Sans'; 
-  margin-bottom:3px; 
-`;  
 
-////////// MainLabel //////////
-
-const MainLabel = ({text}) => (
-  <MainLabelDiv>{text}</MainLabelDiv>
-)
-
-const MainLabelDiv = styled.div`
-  font-size:16px;
-  font-family:'Roboto Condensed';
-  font-weight:300;
-  line-height:20px; 
+const CardFooterDiv = styled.div` 
+  height:30px;
+  width:100%;
+  position: absolute;
+  bottom:0; 
+  box-sizing:border-box;
 `; 
 
-////////// card body
+
+////////// card flag ////////// 
+
+const CardFlag = styled.div` 
+  height:2px;
+  width:calc(100% - 6px);
+  position: absolute;
+  bottom:3px; 
+  left:3px;
+  background:${props => props.theme.goColor};
+  border-bottom-right-radius:2px;
+  border-bottom-left-radius:2px;
+`; 
+
+////////// card body //////////
 
 const Card = (props) => (
   <CardDiv> 
