@@ -198,7 +198,7 @@ const IconLocker15 = () => (
 
 const CardFooter = () => (
   <CardFooterDiv>
-    <CardFlag/>
+    <CardFlagDiv/>
   </CardFooterDiv>
 ) 
 
@@ -213,8 +213,8 @@ const CardFooterDiv = styled.div`
 
 ////////// card flag ////////// 
 
-const CardFlag = styled.div` 
-  height:2px;
+const CardFlagDiv = styled.div` 
+  height:3px;
   width:calc(100% - 6px);
   position: absolute;
   bottom:3px; 
@@ -241,7 +241,7 @@ const Card = (props) => (
 const CardDiv = styled.div`
   width:250px;
   height:330px;
-  border-radius:5px;
+  border-radius:4px;
   margin-bottom:20px;
   margin-right:20px;
   position: relative; 
