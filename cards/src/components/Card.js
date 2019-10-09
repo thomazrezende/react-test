@@ -90,7 +90,7 @@ const CardFogDiv = styled.div`
   top:100%;
   width:100%;
   height:100%;
-  box-shadow: 0 0  80px 100px ${props => props.theme.mainBg}; 
+  box-shadow: 0 0  80px 110px ${props => props.theme.mainBg}; 
   z-index:1;  
 	transition: box-shadow 0.2s ease-in-out;
 `;
