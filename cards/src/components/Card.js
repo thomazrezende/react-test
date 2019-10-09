@@ -214,7 +214,7 @@ const CardFooterDiv = styled.div`
 ////////// card flag ////////// 
 
 const CardFlagDiv = styled.div` 
-  height:3px;
+  height:2px;
   width:calc(100% - 6px);
   position: absolute;
   bottom:3px; 
